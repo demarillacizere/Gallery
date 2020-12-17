@@ -62,7 +62,7 @@ class Image(models.Model):
         )
 
     def __str__(self):
-        return self.image
+        return self.image_name
 
     def save_image(self):
         self.save()
@@ -70,7 +70,7 @@ class Image(models.Model):
     def delete_image(self):
         self.delete()
     
-     @classmethod
+    @classmethod
     def update_image(cls, id ,name, description , image_location, image_category):
         update = cls.objects.filter(id = id).update(name = name, description = description ,image_location = image_location,image_category = image_category)
 
