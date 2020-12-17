@@ -4,6 +4,6 @@ import datetime as dt
 from .models import Image, Location, Category
 
 def gallery(request):
-    pictures = Article.query.all()
+    pictures = Image.query.all()
     return render(request, 'index.html', {"pictures":pictures})
 
