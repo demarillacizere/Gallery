@@ -5,20 +5,66 @@
 <div class="container">
 
   <!-- Looping through picture   -->
-  {% for picture_item in pictures %}
+  {% for picture in pictures %}
 
   <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-      <h2 class="text-center"> {{ picture_item.image_name }} </h2></a>
-        <p><img src='{{ picture_item.image.url }}' width='400'></p>
+      <div class="portfolio-wrap ">
+        <div class="portfolio-wrap hovereffect">
+          <a class="img-overlay" data-toggle="modal" data-target="#{{picture.id}}" style="width:100%">
+          <img src='{{ picture.image.url }}' width='400'>
+          <div class="overlay">
+            <h4>{{picture.image_name}}</h4>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  {% for picture in pictures %}
+  <div class="modal fade" id="{{picture.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="deleteModalLabel">Image Post</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-9 col-lg-9">
+                          <a href="{% url 'picture' category_name=picture.image_category.name image_id=picture.id %}"><img id="img{{picture.id}}" src="{{picture.image.url}}" class="img-thumbnail" alt="Image" style="cursor:pointer"></a>
+
+                      </div>
+                      <div class="col-md-3">
+                          <h4 class = "desc">Location</h4>
+                          <p>{{picture.image_location.name}}</p>
+                          <h4 class = "desc">Category</h4>
+                          <p>{{picture.image_category.name}}</p>
+                      </div>
+                      <div>
+                          <h2 class="desc">{{picture.image_name}}</h2>
+                          <p class="desc">{{picture.description}}</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="copy('img{{picture.id}}')">Copy Link</button>
+                  <!-- <input class="form-control" type="text" value="{{image.image_link}}" id="link">
+                 <a onclick="myFunction()"><button type="button"  class="btn btn-primary">Copy Link</button></a> -->
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
   </div>
+{% endfor %}
+</div>
 
   {% empty %}
   <div class="row">
     <h2 class="text-center">There are No pictures yet</h2>
   </div>
   {% endfor %}
-
 </div>
-
 {% endblock %}
