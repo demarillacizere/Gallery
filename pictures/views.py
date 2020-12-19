@@ -4,8 +4,9 @@ import datetime as dt
 from .models import Image, Location, Category
 
 def gallery(request):
-    pictures = Image.objects.all()
-    return render(request, 'index.html', {"pictures":pictures})
+    images = Image.objects.all()
+    categories = Category.objects.all()
+    return render(request, 'index.html', {"images":images,"categories":categories})
 
 def picture(request,category_name,image_id):
     # images = Image.get_image_by_id(image_id)

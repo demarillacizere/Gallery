@@ -6,19 +6,9 @@
 
 
 <!-- Landing Page -->
-<div class="banner-1">
+<div class="banner-1 container">
     <div class="cover-1">
-        <h2>{{image.image_category.name}} Category</h2>
-        <div class="container imageloc">
-            <form class="form" role="search" action="#">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="&#xf3ee; Search by category"name="image_category">
-                  <br>
-                 </div>
-                 <small>Trending searches: fashion, travel</small>
-              </form>
-          </div>
-      </div>
+        <h3 class="text-muted">{{image.image_category.name}} Category</h3>
   </div>
 
 
@@ -29,15 +19,15 @@
              <div class="portfolio-wrap ">
                  <div class="portfolio-wrap">
                      <a class="img-overlay" data-toggle="modal" data-target="#{{image.id}}" style="width:100%">
-                         <img src="{{image.image.url}}" width='500' href="" class="image" alt="Image" >
+                         <img src="{{image.image.url}}" width='100%' href="" class="image" alt="Image" >
                      </a>
                  </div>
              </div>
          </div>
          <div class="col-md-4">
-             <h4>{{image.name}}</h4>
+             <h4>{{image.image_name}}</h4>
              <p class="text-muted">{{image.image_category}} | {{image.image_location}}</p>
-             <p>{{image.description}}</p>
+             <p>{{image.image_description}}</p>
          </div>
      </div>
 </div>
