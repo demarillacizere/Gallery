@@ -25,5 +25,8 @@
       {% for category in categories %}
       <button class="tablinks" onclick="openCat(event, '{{category.name}}')">{{category.name}}</button>
       {% endfor%}
+      {% for location in locations %}
+      <button class="tablinks" onclick="openCat(event, '{{location.name}}')">{{location.name}}</button>
+      {% endfor%}
     </div>
   </nav>
