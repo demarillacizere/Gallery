@@ -7,7 +7,7 @@
 
 
 <!-- Landing Page -->
-<!-- <div class="banner">
+<div class="banner">
     <div class="cover">
         <div class="container image">
             <h2 id="category">If you can't make it good, at least make it look good.</h2>
@@ -25,12 +25,6 @@
             <a href="#gallery">VIEW GALLERY</a>
         </div>
     </div>
-</div> -->
-<div class="tab" style='text-align:center;' >
-  <button class="tablinks active" onclick="openCat(event, 'All')">All</button>
-  {% for category in categories %}
-  <button class="tablinks" onclick="openCat(event, '{{category.name}}')">{{category.name}}</button>
-  {% endfor%}
 </div>
 
 <!-- Tab content -->

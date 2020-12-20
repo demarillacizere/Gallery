@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light" style='z-index:2;background-color:rgb(5, 32, 48);'>
+<nav class="navbar navbar-light" style='position:-webkit-sticky;position:sticky;top:0;width:100%;z-index:2;background-color:rgb(5, 32, 48);'>
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="{% url 'gallery' %}" style='color:rgb(255, 255, 255);'><i><b style='color:rgb(238, 169, 180)'>dee</b></i>Gallery</a>
@@ -19,5 +19,11 @@
         </form>
       </div>
       <!-- search form end -->
+    </div>
+    <div class="tab" >
+      <button class="tablinks active" onclick="openCat(event, 'All')">All</button>
+      {% for category in categories %}
+      <button class="tablinks" onclick="openCat(event, '{{category.name}}')">{{category.name}}</button>
+      {% endfor%}
     </div>
   </nav>
