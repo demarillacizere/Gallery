@@ -21,18 +21,16 @@ def picture(request,category_name,image_id):
         raise Http404()
     return render(request,"picture.html",{'title':title,"image":image, "locations":locations, "image_category":image_category})
 
-def search_image(request):
+def search_by_cat(request):
     title = 'Search'
-    categories = Category.objects.all()
-    locations = Location.objects.all()
     if 'image_category' in request.GET and request.GET['image_category']:
         search_term = request.GET.get('image_category')
-        found_results = Image.search_image(search_term)
+        found_results = Image.objects.filter(image_category__name__icontains=search_term)
         message = f"{search_term}"
         print(search_term)
         print(found_results)
 
-        return render(request, 'search.html',{'title':title,'images': found_results, 'message': message, 'categories': categories, "locations":locations})
+        return render(request, 'search.html',{'title':title,'search_term':search_term,'images': found_results, 'message': message})
     else:
         message = 'You havent searched yet'
         return render(request, 'search.html',{"message": message})

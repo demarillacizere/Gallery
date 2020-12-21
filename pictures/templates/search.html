@@ -5,26 +5,9 @@
 {{block.super}}
 
 <!-- Landing Page -->
-<div class="banner">
-    <div class="cover">
-        {% if images%}
-        <h2>Found {{ images|length}} images for searched term {{message}}</h2>
-        {% else %}
-        <h2>Found 0 articles for the search term {{message}}</h2>
-        {% endif %}
-        <div class="container image">
-            <form class="form" role="search" action="#">
-
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="&#xf3ee; Search by category" name="image_category">
-                  <br>
-                 </div>
-
-                 <small>Trending searches: fashion, travel</small>
-
-              </form>
-        </div>
-    </div>
+<div class='container ' style='margin-top:10%;'>
+    <h2><b>{{search_term|title}}</b></h2>
+    <small>Found {{ images|length}} images</small><br><br>
 </div>
 
 
@@ -37,25 +20,24 @@
                  <div class="portfolio-wrap ">
                      <div class="portfolio-wrap hovereffect">
                          <a class="img-overlay" data-toggle="modal" data-target="#{{image.id}}" style="width:100%">
-                             <img src="{{image.picture.cdn_url}}" href="" class="image" alt="Image" >
+                             <img src="{{image.image.url}}" width='100%' href="" class="image" alt="Image" >
                              <div class="overlay">
-                                 <h4>{{image.name}}</h4>
+                                 <h4>{{image.image_name}}</h4>
                              </div>
                          </a>
                      </div>
                  </div>
              </div>
-        {% empty %}
-    </div>
-    <div class="row">
+    {% empty %}
         <div class="col-sm-6 col-md-6 col-lg-6">
-            <img src="{% static 'images/sorry.png' %}" alt="" class = "oops">
+            <img src="https://unsplash.com/a/img/empty-states/photos.png" width='100%'alt="">
         </div>
         <div class="col-sm-6 col-md-6 col-lg-6">
-            <h2 class="text-center"> Sorry no image for {{message}} category. Images are comming soon.</h2>
+            <h4 class="text-center"> Sorry, no images found for <b>{{search_term}}</b> category</h4>
         </div>
-    </div>
     {% endfor %}
+    </div>
+    
 
     <!-- looping through image details modal class -->
     {% for image in images %}
@@ -63,7 +45,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLabel">Image Post</h5>
+                        <h5 class="modal-title" id="deleteModalLabel">{{image.image_name}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -71,24 +53,21 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-9 col-lg-9">
-                                <a href="{% url 'single' category_name=image.image_category.name image_id=image.id %}"><img id="img{{image.id}}" src="{{image.picture.cdn_url}}" class="img-thumbnail" alt="Image" style="cursor:pointer"></a>
+                                <a href="{% url 'picture' category_name=image.image_category.name image_id=image.id %}"><img id="img{{image.id}}" src="{{image.image.url}}" class="img-thumbnail" alt="Image" style="cursor:pointer"></a>
+
                             </div>
                             <div class="col-md-3">
-                                <h4>Location</h4>
-                                <p>{{image.image_location.name}}</p>
-                                <h4>Category</h4>
-                                <p>{{image.image_category.name}}</p>
+                                <p><i class="fas fa-map-marker-alt"> {{image.image_location.name}}</i></p>
+                                <p><i class="fas fa-tags"> {{image.image_category.name}}</i></p>
+                                <p class="desc">{{image.image_description}}</p>
                             </div>
                             <div>
-                                <h2 class="desc">{{image.name}}</h2>
-                                <p class="desc">{{image.description}}</p>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <!-- <input class="form-control" type="text" value="{{image.image_link}}" id="link"> -->
                         <button type="button" class="btn btn-secondary" onclick="copy('img{{image.id}}')">Copy Link</button>
-                       <!-- <a onclick="myFunction()"><button type="button"  class="btn btn-primary">Copy Link</button></a> -->
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
