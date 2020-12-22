@@ -4,6 +4,8 @@
 
 **[Demarillac Izere](https://github.com/demarillacizere)**
 
+# LIVE SERVER
+The application can be found **[here](https://picnav.herokuapp.com)**
 # DESCRIPTION
 
 This is a photo gallery web application to showcase beautiful pictures for viewers
