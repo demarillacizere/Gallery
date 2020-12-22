@@ -1,10 +1,8 @@
 from django.test import TestCase
 
 from .models import Image,Category,Location
-# Create your tests here.
 
 class LocationTestCLass(TestCase):
-    #Set up Method
     def setUp(self):
         self.loc = Location(name="Africa")
         self.loc.save_location()
@@ -32,7 +30,6 @@ class LocationTestCLass(TestCase):
 
 
 class CategoryTestClass(TestCase):
-    # Set up Method
     def setUp(self):
         self.cat = Category(name="fashion")
         self.cat.save_category()
@@ -60,7 +57,6 @@ class CategoryTestClass(TestCase):
 
 
 class ImageTestClass(TestCase):
-    # Set up Method
     def setUp(self):
         self.cat = Category(name="fashion")
         self.cat.save_category()
