@@ -25,7 +25,7 @@ def search_by_cat(request):
     title = 'Search'
     if 'image_category' in request.GET and request.GET['image_category']:
         search_term = request.GET.get('image_category')
-        found_results = Image.objects.filter(image_category__name__icontains=search_term)
+        found_results = Image.objects.filter(image_category__name=search_term)
         message = f"{search_term}"
         print(search_term)
         print(found_results)
