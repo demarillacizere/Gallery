@@ -1,12 +1,13 @@
 # THE PICNAV
 
-## AUTHOR
+## Author
 
 **[Demarillac Izere](https://github.com/demarillacizere)**
 
-## LIVE SERVER
+## Live Server
 The application can be found **[here](https://picnav.herokuapp.com)**
-## DESCRIPTION
+
+## Description
 
 This is a photo gallery web application to showcase beautiful pictures for viewers.
 
