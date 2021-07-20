@@ -1,16 +1,16 @@
 # THE PICNAV
 
-# AUTHOR
+## AUTHOR
 
 **[Demarillac Izere](https://github.com/demarillacizere)**
 
-# LIVE SERVER
+## LIVE SERVER
 The application can be found **[here](https://picnav.herokuapp.com)**
-# DESCRIPTION
+## DESCRIPTION
 
-This is a photo gallery web application to showcase beautiful pictures for viewers
+This is a photo gallery web application to showcase beautiful pictures for viewers.
 
-#### User Stories
+### User Stories
 
 * Users get can view photos uploaded by admin
 * Users can see photos based on the location, by clicking on the listed locations in the menu.
@@ -36,10 +36,10 @@ This is a photo gallery web application to showcase beautiful pictures for viewe
 * $ Run the app with command python3.6 manage.py runserver
 
 
-# Support and Contacts
+## Support and Contacts
 
 In case You have any issues using this code please do no hesitate to get in touch with me through izered3@gmail.com or leave a commit here on github.
 
-# License
+## License
 
 * MIT License (2020)
